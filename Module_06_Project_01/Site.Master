@@ -1,0 +1,85 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Module_06_Project_01.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title><%: Page.Title %></title>
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+    <script src="/Scripts/bootstrap.bundle.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+        body{
+            padding-top:70px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <nav class="navbar bg-light navbar-expand-md fixed-top shadow-sm">
+            <div class="container">
+                <span class="navbar-brand">Books</span>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse" id="nav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="/Default.aspx">Home</a></li>
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Book Catalogue
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/Management/TagManage.aspx">Tags</a></li>
+                                <li><a class="dropdown-item" href="/Management/Publishers.aspx">Publishers</a></li>
+                                <li><a class="dropdown-item" href="/Management/Authors.aspx">Authors</a> </li>
+                                <li><a class="dropdown-item" href="/Management/Books.aspx">Books</a></li>
+                                <li><a class="dropdown-item" href="/Management/BookTags.aspx">BookTags</a></li>
+                                <li><a class="dropdown-item" href="/Management/BookPublisher.aspx">Master Detailes</a></li>
+                            </ul>
+                        </li>
+                        
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Reports
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/Reports/Report1.aspx">Reports-01</a></li>
+                                <li><a class="dropdown-item" href="/Reports/Report2.aspx">Reports-02</a></li>
+                                <li><a class="dropdown-item" href="/Reports/SubReport.aspx">Reports-03</a></li>
+                                <li><a class="dropdown-item" href="/Reports/Report4.aspx">Reports-04</a></li>
+                                <li><a class="dropdown-item" href="/Reports/Report5.aspx">Reports-05</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto">
+                        <asp:LoginView ID="LoginView1" runat="server">
+                            <AnonymousTemplate>
+                                <li class="nav-item"><a class="nav-link" href="Register.aspx">Register</a></li>
+                                <li class="nav-item"><a class="nav-link" href="Login.aspx">Login</a></li>
+                            </AnonymousTemplate>
+                            <LoggedInTemplate>
+                                <span class="navbar-text">
+                                    <asp:LoginName ID="LoginName1" runat="server" />
+                                </span>
+                                <li class="nav-item">
+                                    <asp:LinkButton OnClick="LinkButton1_Click" CssClass="nav-link" ID="LinkButton1" runat="server">Logout</asp:LinkButton></li>
+                            </LoggedInTemplate>
+                        </asp:LoginView>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <asp:ContentPlaceHolder ID="main" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+    </form>
+    <asp:ContentPlaceHolder ID="foot" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+</html>
